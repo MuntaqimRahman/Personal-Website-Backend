@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/config/database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -20,4 +21,5 @@
 .byebug_history
 
 # Ignoring secrets
-/secrets.yml
+/config/secrets.yml
+
