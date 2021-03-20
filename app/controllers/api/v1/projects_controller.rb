@@ -19,10 +19,7 @@ module Api
         # POST /projects
         def create
           @project = Project.new(project_params)
-
-          puts "TEEEEEEEEEEEEEEEEEEEEEEEEST"
-          puts params[:imgs]
-
+          
           if @project.save
             render json: @project, status: :created
           else
