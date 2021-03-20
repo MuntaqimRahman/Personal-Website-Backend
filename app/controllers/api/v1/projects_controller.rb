@@ -19,7 +19,7 @@ module Api
         # POST /projects
         def create
           @project = Project.new(project_params)
-          
+
           if @project.save
             render json: @project, status: :created
           else
@@ -29,7 +29,10 @@ module Api
 
         # PATCH/PUT /projects/1
         def update
-          if @project.update(project_params)
+
+          @project = Project.find(params[:id]).update(project_params)
+
+          if @project
             render json: @project
           else
             render json: @project.errors, status: :unprocessable_entity
@@ -38,7 +41,9 @@ module Api
 
         # DELETE /projects/1
         def destroy
-          @project.destroy
+          @project = Project.find(params[:id]).destroy!
+          head :no_content
+
         end
 
         private
