@@ -7,7 +7,7 @@ module Api
         #Scaffolded API actions
 
         PAGINATION_LIMIT = 30
-        before_action :admin_authentication
+        before_action :admin_authentication, except: [:index]
         # GET /projects
         def index
           fetched_param = params.fetch(:limit, PAGINATION_LIMIT).to_i;

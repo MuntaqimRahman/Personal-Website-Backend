@@ -6,7 +6,7 @@ module Api
       include ActionController::HttpAuthentication::Token
 
       PAGINATION_LIMIT = 20
-      before_action :admin_authentication
+      before_action :admin_authentication, except: [:index]
 
 
       def index
