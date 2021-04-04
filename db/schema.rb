@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210320020900) do
+ActiveRecord::Schema.define(version: 20210324025236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.text "title"
+    t.text "company"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text "link"
+    t.string "body_points", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -30,12 +41,42 @@ ActiveRecord::Schema.define(version: 20210320020900) do
     t.string "imgs", default: [], array: true
   end
 
+  create_table "experiences", force: :cascade do |t|
+    t.text "title"
+    t.text "company"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text "link"
+    t.string "body_points", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "imgs", default: [], array: true
+  end
+
+  create_table "resume_projects", force: :cascade do |t|
+    t.text "title"
+    t.text "company"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text "link"
+    t.string "body_points", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "languages", default: [], array: true
+    t.string "frameworks", default: [], array: true
+    t.string "tools", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

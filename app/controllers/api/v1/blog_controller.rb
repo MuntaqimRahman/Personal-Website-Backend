@@ -6,7 +6,7 @@ module Api
       include ActionController::HttpAuthentication::Token
 
       PAGINATION_LIMIT = 20
-      before_action :admin_authentication, except: [:index]
+      before_action :admin_authentication, except: [:index, :show]
 
 
       def index
@@ -16,6 +16,14 @@ module Api
         blogs = Blog.limit(fetched_param).offset(params[:offset]); #Blog is a model which inherits from ApplicationRecord which itself inherits from ActiveRecord
 
         render json: blogs 
+      end
+
+      def show
+        blog = Blog.find(params[:id])
+        
+        #Default is 200 so no need to specify status
+        render json: blog
+
       end
 
       def create #create a new blog entry

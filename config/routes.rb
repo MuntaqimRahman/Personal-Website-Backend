@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   #Clearly delineated namespace separated from the rest of the app and versioning
   namespace :api do
     namespace :v1 do
-      resources :blog , only: [:index, :create, :destroy]
-      resources :projects, except: [:show]
+      resources :blog , only: [:index, :create, :destroy, :show]
+      resources :projects
+      resources :experiences, except: [:show]
+      resources :resume_projects, except: [:show]
+      resources :activities, except: [:show]
+      resources :skills, except: [:show]
+
 
       post 'auth', to: 'authentication#create'
     end

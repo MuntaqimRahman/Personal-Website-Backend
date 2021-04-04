@@ -7,13 +7,20 @@ module Api
         #Scaffolded API actions
 
         PAGINATION_LIMIT = 30
-        before_action :admin_authentication, except: [:index]
+        before_action :admin_authentication, except: [:index, :show]
         # GET /projects
         def index
           fetched_param = params.fetch(:limit, PAGINATION_LIMIT).to_i;
           @projects = Project.limit(fetched_param).offset(params[:offset]);
 
           render json: @projects
+        end
+
+        #GET /projects/1
+        def show
+          @project = Project.find(params[:id])
+
+          render json: @project
         end
 
         # POST /projects
