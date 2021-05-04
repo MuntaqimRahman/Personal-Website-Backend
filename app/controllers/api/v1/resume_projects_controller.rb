@@ -48,7 +48,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def resume_project_params
-          params.require(:resume_project).permit(:title,:company,:start_date,:end_date,:link, body_points: [])
+          params.require(:resume_project).permit(:title,:sub_description,:start_date,:end_date,:link, body_points: [])
         end
     end
   end

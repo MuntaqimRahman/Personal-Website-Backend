@@ -49,7 +49,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def experience_params
-          params.require(:experience).permit(:title,:company,:start_date,:end_date,:link, body_points: [])
+          params.require(:experience).permit(:title,:sub_description,:start_date,:end_date,:link, body_points: [])
         end
     end
   end

@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-    validates :blog_title, length: {maximum: 100} ,presence: true
-    validates :blog_content, presence: true
+    validates :title, length: {maximum: 100} ,presence: true
+    validates :description, presence: true
 
 end

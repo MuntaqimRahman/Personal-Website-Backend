@@ -45,7 +45,7 @@ module Api
       private 
       
       def create_parameters
-        params.require(:blog).permit(:blog_title, :blog_content, imgs: [])
+        params.require(:blog).permit(:title, :description, imgs: [])
       end
 
     end

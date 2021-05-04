@@ -43,7 +43,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def activitie_params
-          params.require(:activity).permit(:title,:company,:start_date,:end_date,:link, body_points: [])
+          params.require(:activity).permit(:title,:sub_description,:start_date,:end_date,:link, body_points: [])
         end
     end
   end

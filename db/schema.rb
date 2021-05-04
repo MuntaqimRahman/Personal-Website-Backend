@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20210324025236) do
 
   create_table "activities", force: :cascade do |t|
     t.text "title"
-    t.text "company"
+    t.text "sub_description"
     t.datetime "start_date"
     t.datetime "end_date"
     t.text "link"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20210324025236) do
   end
 
   create_table "blogs", force: :cascade do |t|
-    t.string "blog_title", limit: 100, null: false
-    t.string "blog_content", null: false
+    t.string "title", limit: 100, null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "imgs", default: [], array: true
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20210324025236) do
 
   create_table "experiences", force: :cascade do |t|
     t.text "title"
-    t.text "company"
+    t.text "sub_description"
     t.datetime "start_date"
     t.datetime "end_date"
     t.text "link"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20210324025236) do
 
   create_table "resume_projects", force: :cascade do |t|
     t.text "title"
-    t.text "company"
+    t.text "sub_description"
     t.datetime "start_date"
     t.datetime "end_date"
     t.text "link"
