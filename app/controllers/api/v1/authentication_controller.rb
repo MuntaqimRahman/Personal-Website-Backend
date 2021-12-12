@@ -8,8 +8,10 @@ module Api
         rescue_from AuthError, with: :unauthorized_handler
         def create
 
-            raise AuthError unless admin.authenticate(password_parameters)
+            # puts "ADMIN NEW"
+            # puts admin.authenticate
 
+            raise AuthError unless admin.authenticate(password_parameters)
 
             token = AuthenticationService.encode(admin.id)
 
@@ -20,6 +22,7 @@ module Api
         private 
 
         def admin
+            # puts "ADMIN"
             @admin ||= Admin.find_by(username: user_parameters) #Memoize finding admin and assign to instance variable
         end
 

@@ -11,44 +11,44 @@ module Api
         # GET /projects
         def index
           fetched_param = params.fetch(:limit, PAGINATION_LIMIT).to_i;
-          @projects = Project.limit(fetched_param).offset(params[:offset]);
+          projects = Project.limit(fetched_param).offset(params[:offset]).order(id: :desc);
 
-          render json: @projects
+          render json: projects
         end
 
         #GET /projects/1
         def show
-          @project = Project.find(params[:id])
+          project = Project.find(params[:id])
 
-          render json: @project
+          render json: project
         end
 
         # POST /projects
         def create
-          @project = Project.new(project_params)
+          project = Project.new(project_params)
 
-          if @project.save
-            render json: @project, status: :created
+          if project.save
+            render json: project, status: :created
           else
-            render json: @project.errors, status: :unprocessable_entity
+            render json: project.errors, status: :unprocessable_entity
           end
         end
 
         # PATCH/PUT /projects/1
         def update
 
-          @project = Project.find(params[:id]).update(project_params)
+          project = Project.find(params[:id]).update(project_params)
 
-          if @project
-            render json: @project
+          if project
+            render json: project
           else
-            render json: @project.errors, status: :unprocessable_entity
+            render json: project.errors, status: :unprocessable_entity
           end
         end
 
         # DELETE /projects/1
         def destroy
-          @project = Project.find(params[:id]).destroy!
+          project = Project.find(params[:id]).destroy!
           head :no_content
 
         end

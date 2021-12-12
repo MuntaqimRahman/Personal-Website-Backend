@@ -13,7 +13,7 @@ module Api
 
         fetched_param = params.fetch(:limit, PAGINATION_LIMIT).to_i;
 
-        blogs = Blog.limit(fetched_param).offset(params[:offset]); #Blog is a model which inherits from ApplicationRecord which itself inherits from ActiveRecord
+        blogs = Blog.limit(fetched_param).offset(params[:offset]).order(id: :desc); #Blog is a model which inherits from ApplicationRecord which itself inherits from ActiveRecord
 
         render json: blogs 
       end
