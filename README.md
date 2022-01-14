@@ -7,3 +7,8 @@ The admin credentials are stored securely on a PostgreSQL database on Heroku and
 This lets me keep the website updated with content securely without going through the frontend.
 
 It's hosted through Heroku here (https://muntaqim-website-backend.herokuapp.com/api/v1/[route])
+
+The frontend repository is on my GitHub and the full site can be seen here: https://muntaqim-website-frontend.herokuapp.com/
+
+Note I've allowed Heroku to let my application sleep when not called on to save resources. 
+This may mean it will load slowly the first time you go onto it before Heroku wakes it up.
